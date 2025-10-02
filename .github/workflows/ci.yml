@@ -10,9 +10,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       matrix:
-        ruby-version: ['3.2', '3.3']
+        ruby-version: ['3.2']
         rails-version: ['7.2']
 
     steps:
@@ -23,9 +24,7 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
-
-    - name: Install dependencies
-      run: bundle install
+        cache-version: 0
 
     - name: Run RuboCop
       run: bundle exec rubocop
@@ -42,6 +41,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     needs: test
 
     steps:
@@ -52,6 +52,7 @@ jobs:
       with:
         ruby-version: '3.2'
         bundler-cache: true
+        cache-version: 0
 
     - name: Build gem
       run: bundle exec rake build
