@@ -1,1 +1,52 @@
+# Node modules
 node_modules/
+
+# Ruby/Gem artifacts
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Bundler
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+# RSpec
+.rspec_status
+
+# SimpleCov coverage reports
+coverage/
+
+# YARD documentation
+.yardoc
+_yardoc
+doc/
+.yardopts
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+log/
+
+# Temporary files
+.rake_tasks~

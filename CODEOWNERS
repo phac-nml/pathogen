@@ -1,0 +1,16 @@
+# Global owners - all files require review from these users
+* @phac-nml/bioinformatics-team
+
+# Core component files require additional review
+/app/components/pathogen/ @phac-nml/accessibility-team
+/lib/pathogen/ @phac-nml/bioinformatics-team
+
+# Documentation requires review from team leads
+README.md @phac-nml/bioinformatics-team
+CHANGELOG.md @phac-nml/bioinformatics-team
+docs/ @phac-nml/bioinformatics-team
+
+# CI and infrastructure changes require DevOps review
+.github/ @phac-nml/devops-team
+Gemfile @phac-nml/bioinformatics-team @phac-nml/devops-team
+pathogen_view_components.gemspec @phac-nml/bioinformatics-team
