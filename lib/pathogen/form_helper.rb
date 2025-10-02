@@ -35,6 +35,7 @@
 module Pathogen
   # Generic form helper methods that can be used across form components
   module FormHelper
+    DISALLOWED_ARIA_ATTRIBUTES = %w[aria-label aria-labelledby aria-live].freeze
     # Generates a unique ID for help text elements
     # @return [String] The help text ID
     def help_text_id
@@ -134,7 +135,7 @@ module Pathogen
       return if options.blank?
 
       disallowed = options.keys.select do |k|
-        k.to_s.start_with?('aria_') || %w[aria-label aria-labelledby aria-live].include?(k.to_s)
+        k.to_s.start_with?('aria_') || DISALLOWED_ARIA_ATTRIBUTES.include?(k.to_s)
       end
       disallowed.each { |k| options.delete(k) }
     end

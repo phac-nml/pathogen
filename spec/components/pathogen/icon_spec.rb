@@ -30,9 +30,13 @@ RSpec.describe Pathogen::Icon, type: :component do
   end
 
   describe 'options handling' do
-    it 'builds rails_icons options' do
+    it 'builds rails_icons options as a hash' do
       component = described_class.new(:info, class: 'custom-class')
       expect(component.rails_icons_options).to be_a(Hash)
+    end
+
+    it 'includes custom classes in rails_icons options' do
+      component = described_class.new(:info, class: 'custom-class')
       expect(component.rails_icons_options[:class]).to include('custom-class')
     end
   end

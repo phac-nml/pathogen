@@ -9,7 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Bioinformatics, Public Health Agency of Canada']
   spec.version       = Pathogen::ViewComponents::Version::STRING
   spec.summary       = 'Pathogen View Components'
-  spec.description   = 'A Rails Engine gem providing WCAG AA+ compliant ViewComponent-based UI components for Rails applications'
+  spec.description   = 'A Rails Engine gem providing WCAG AA+ compliant ViewComponent-based ' \
+                       'UI components for Rails applications'
   spec.homepage      = 'https://github.com/phac-nml/pathogen'
   spec.license       = 'MIT'
 

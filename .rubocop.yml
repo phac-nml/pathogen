@@ -1,12 +1,26 @@
-plugins:
-  - rubocop-rails
+require:
   - rubocop-rails-accessibility
+
+plugins:
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
 
 Rails:
   Enabled: true
 
 AllCops:
   NewCops: enable
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'pkg/**/*'
+    - '.bundle/**/*'
+  TargetRubyVersion: 3.3
 
 Lint/MissingSuper:
   Exclude:

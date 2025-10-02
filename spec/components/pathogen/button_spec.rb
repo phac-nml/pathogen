@@ -5,61 +5,61 @@ require 'spec_helper'
 RSpec.describe Pathogen::Button, type: :component do
   describe 'rendering' do
     it 'renders a button with default scheme' do
-      render_inline(described_class.new) { 'Click me' }
-
-      expect(page).to have_css('button', text: 'Click me')
+      render_button { 'Click me' }
+      expect(page).to have_button('Click me')
     end
 
     it 'renders a button with primary scheme' do
-      render_inline(described_class.new(scheme: :primary)) { 'Submit' }
-
-      expect(page).to have_css('button', text: 'Submit')
+      render_button(scheme: :primary) { 'Submit' }
+      expect(page).to have_button('Submit')
     end
 
     it 'renders a button with danger scheme' do
-      render_inline(described_class.new(scheme: :danger)) { 'Delete' }
-
-      expect(page).to have_css('button', text: 'Delete')
+      render_button(scheme: :danger) { 'Delete' }
+      expect(page).to have_button('Delete')
     end
 
     it 'includes custom classes' do
-      render_inline(described_class.new(class: 'custom-class')) { 'Click' }
-
-      expect(page).to have_css('button.custom-class')
+      render_button(class: 'custom-class') { 'Click' }
+      expect(page).to have_button('Click', class: 'custom-class')
     end
 
     it 'includes test selector attribute' do
-      render_inline(described_class.new(test_selector: 'submit-button')) { 'Submit' }
-
-      expect(page).to have_css('button[data-test-selector="submit-button"]')
+      render_button(test_selector: 'submit-button') { 'Submit' }
+      expect(page).to have_css('button[data-test-selector="submit-button"]', text: 'Submit')
     end
   end
 
   describe 'accessibility' do
     it 'renders a semantic button element' do
-      render_inline(described_class.new) { 'Click' }
-
-      expect(page).to have_selector('button')
+      render_button { 'Click' }
+      expect(page).to have_button('Click')
     end
 
     it 'supports aria attributes' do
-      render_inline(described_class.new(aria: { label: 'Close dialog' })) { 'X' }
-
-      expect(page).to have_css('button[aria-label="Close dialog"]')
+      render_button(aria: { label: 'Close dialog' }) { 'X' }
+      expect(page).to have_css('button[aria-label="Close dialog"]', text: 'X')
     end
 
     it 'can be disabled' do
-      render_inline(described_class.new(disabled: true)) { 'Submit' }
-
-      expect(page).to have_css('button[disabled]')
+      render_button(disabled: true) { 'Submit' }
+      expect(page).to have_button('Submit', disabled: true)
     end
   end
 
   describe 'styling' do
-    it 'accepts both :class and :classes for backward compatibility' do
-      # Button component accepts both for flexibility
+    it 'accepts :class parameter for backward compatibility' do
       expect { described_class.new(class: 'custom') }.not_to raise_error
+    end
+
+    it 'accepts :classes parameter' do
       expect { described_class.new(classes: 'custom') }.not_to raise_error
     end
+  end
+
+  private
+
+  def render_button(**options, &block)
+    render_inline(described_class.new(**options), &block)
   end
 end

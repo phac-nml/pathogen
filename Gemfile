@@ -10,9 +10,13 @@ gem 'rails', '>= 8'
 group :development do
   gem 'annotate'
   gem 'rubocop'
+  gem 'rubocop-capybara'
+  gem 'rubocop-factory_bot'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rails-accessibility', '~> 1.0'
+  gem 'rubocop-rspec'
+  gem 'rubocop-rspec_rails'
 end
 
 # test dependencies

@@ -5,78 +5,56 @@ require 'spec_helper'
 RSpec.describe Pathogen::Form::RadioButton, type: :component do
   describe 'initialization' do
     it 'initializes with required parameters' do
-      expect do
-        described_class.new(
-          attribute: :role,
-          value: 'admin',
-          label: 'Administrator'
-        )
-      end.not_to raise_error
+      expect { create_radio_button(:role, 'admin', 'Administrator') }.not_to raise_error
     end
 
     it 'accepts optional form parameter' do
-      expect do
-        described_class.new(
-          attribute: :theme,
-          value: 'dark',
-          label: 'Dark Theme',
-          form: nil
-        )
-      end.not_to raise_error
+      expect { create_radio_button_with_form(:theme, 'dark', 'Dark Theme') }.not_to raise_error
     end
 
     it 'accepts label option' do
-      component = described_class.new(
-        attribute: :status,
-        value: 'active',
-        label: 'Active Status'
-      )
-
+      component = create_radio_button(:status, 'active', 'Active Status')
       expect(component.instance_variable_get(:@label)).to eq('Active Status')
     end
 
     it 'accepts help_text option' do
-      component = described_class.new(
-        attribute: :theme,
-        value: 'system',
-        label: 'System',
-        help_text: 'Use system theme'
-      )
-
+      component = create_radio_button_with_help(:theme, 'system', 'System', 'Use system theme')
       expect(component.instance_variable_get(:@help_text)).to eq('Use system theme')
     end
 
     it 'accepts checked option' do
-      component = described_class.new(
-        attribute: :role,
-        value: 'user',
-        label: 'User',
-        checked: true
-      )
-
+      component = create_radio_button_checked(:role, 'user', 'User')
       expect(component.instance_variable_get(:@checked)).to be true
     end
   end
 
   describe 'value handling' do
     it 'stores the value attribute' do
-      component = described_class.new(
-        attribute: :preference,
-        value: 'email',
-        label: 'Email'
-      )
-
+      component = create_radio_button(:preference, 'email', 'Email')
       expect(component.instance_variable_get(:@value)).to eq('email')
     end
 
     it 'stores the attribute name' do
-      component = described_class.new(
-        attribute: :notification_method,
-        value: 'sms',
-        label: 'SMS'
-      )
-
+      component = create_radio_button(:notification_method, 'sms', 'SMS')
       expect(component.instance_variable_get(:@attribute)).to eq(:notification_method)
     end
+  end
+
+  private
+
+  def create_radio_button(attribute, value, label)
+    described_class.new(attribute:, value:, label:)
+  end
+
+  def create_radio_button_with_form(attribute, value, label)
+    described_class.new(attribute:, value:, label:, form: nil)
+  end
+
+  def create_radio_button_with_help(attribute, value, label, help_text)
+    described_class.new(attribute:, value:, label:, help_text:)
+  end
+
+  def create_radio_button_checked(attribute, value, label)
+    described_class.new(attribute:, value:, label:, checked: true)
   end
 end
