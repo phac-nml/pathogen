@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/RakeEnvironment
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
@@ -49,3 +50,5 @@ desc 'Release the gem to RubyGems.org'
 task release: %i[spec rubocop build] do
   sh 'gem push *.gem'
 end
+
+# rubocop:enable Rails/RakeEnvironment
