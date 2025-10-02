@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rails', '>= 8'
+gem 'rails', '~> 7.2.0'
 
 # development dependencies
 group :development do

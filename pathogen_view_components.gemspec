@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     Dir['{app,config,lib}/**/*', 'LICENSE', 'README.md', 'CHANGELOG.md']
   end
   spec.require_paths = ['lib']
-  spec.required_ruby_version = Gem::Requirement.new('>= 3.3.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 3.2.0')
   spec.add_dependency 'actionview', '>= 5.0.0'
   spec.add_dependency 'activesupport', '>= 5.0.0'
   spec.add_dependency 'nokogiri'

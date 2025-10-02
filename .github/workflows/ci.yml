@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['3.3']
-        rails-version: ['8.0']
+        ruby-version: ['3.2', '3.3']
+        rails-version: ['7.2']
 
     steps:
     - uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.3'
+        ruby-version: '3.2'
         bundler-cache: true
 
     - name: Build gem

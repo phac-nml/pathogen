@@ -21,13 +21,13 @@ end
 
 # Auto-correct RuboCop violations
 desc 'Auto-correct RuboCop violations'
-task rubocop_autocorrect: :environment do
+task :rubocop_autocorrect do
   sh 'bundle exec rubocop -A'
 end
 
 # Build the gem
 desc 'Build the gem'
-task build: :environment do
+task :build do
   sh 'gem build pathogen_view_components.gemspec'
 end
 
@@ -40,7 +40,7 @@ end
 
 # Clean build artifacts
 desc 'Clean build artifacts'
-task clean: :environment do
+task :clean do
   sh 'rm -f *.gem'
 end
 
