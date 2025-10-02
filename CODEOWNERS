@@ -1,16 +1,16 @@
 # Global owners - all files require review from these users
-* @phac-nml/bioinformatics-team
+* @phac-nml/irida
 
 # Core component files require additional review
-/app/components/pathogen/ @phac-nml/accessibility-team
-/lib/pathogen/ @phac-nml/bioinformatics-team
+/app/components/pathogen/ @phac-nml/irida
+/lib/pathogen/ @phac-nml/irida
 
 # Documentation requires review from team leads
-README.md @phac-nml/bioinformatics-team
-CHANGELOG.md @phac-nml/bioinformatics-team
-docs/ @phac-nml/bioinformatics-team
+README.md @phac-nml/irida
+CHANGELOG.md @phac-nml/irida
+docs/ @phac-nml/irida
 
 # CI and infrastructure changes require DevOps review
-.github/ @phac-nml/devops-team
-Gemfile @phac-nml/bioinformatics-team @phac-nml/devops-team
-pathogen_view_components.gemspec @phac-nml/bioinformatics-team
+.github/ @phac-nml/irida
+Gemfile @phac-nml/irida @phac-nml/irida
+pathogen_view_components.gemspec @phac-nml/irida
