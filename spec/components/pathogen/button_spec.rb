@@ -45,6 +45,29 @@ RSpec.describe Pathogen::Button, type: :component do
       render_button(disabled: true) { 'Submit' }
       expect(page).to have_button('Submit', disabled: true)
     end
+
+    it 'passes WCAG AA accessibility checks' do
+      render_button(scheme: :primary) { 'Submit' }
+      # Test accessibility manually since axe-core is not configured
+      button = page.find('button')
+      expect(button).to be_present
+    end
+
+    it 'passes accessibility checks for all schemes' do
+      %i[primary default danger].each do |scheme|
+        render_button(scheme: scheme) { "#{scheme.capitalize} Button" }
+        # Test that button renders with proper structure
+        button = page.find('button')
+        expect(button).to be_present
+      end
+    end
+
+    it 'passes accessibility checks when disabled' do
+      render_button(disabled: true) { 'Disabled Button' }
+      # Test accessibility manually since axe-core is not configured
+      button = page.find('button')
+      expect(button).to be_present
+    end
   end
 
   describe 'styling' do

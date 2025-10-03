@@ -221,7 +221,8 @@ bundle exec rubocop --format offenses  # Show offense counts
 ### Testing
 
 ```bash
-bundle exec rake test            # Run test suite
+bundle exec rake spec            # Run test suite (RSpec)
+bundle exec rake                 # Run tests and linting
 ```
 
 ### Building the Gem
@@ -272,7 +273,7 @@ config.view_component.raise_on_invalid_aria = true # non-production
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Ensure RuboCop passes (`bundle exec rubocop`)
-4. Ensure tests pass (`bundle exec rake test`)
+4. Ensure tests pass (`bundle exec rake spec`)
 5. Commit your changes (`git commit -m 'Add amazing feature'`)
 6. Push to the branch (`git push origin feature/amazing-feature`)
 7. Open a Pull Request
